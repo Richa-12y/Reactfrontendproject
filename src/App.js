@@ -1,25 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { Routes, Route } from "react-router-dom";
+import AdminLayout from './admin/shared/AdminLayout';
+import Layout from './shared/Layout';
+import UserLayout from './user/shared/UserLayout';
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Routes>
+        <Route path="/user/*" element={<UserLayout />}></Route>
+        <Route path="/admin/*" element={<AdminLayout />}></Route>
+        <Route path="/*" element={<Layout />}></Route>
+      </Routes>
     </div>
-  );
+  )
 }
-
-export default App;
